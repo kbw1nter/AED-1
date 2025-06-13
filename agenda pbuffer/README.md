@@ -65,7 +65,7 @@ ContactList/
 2. **Run the program:**
 
    ```bash
-   ./agenda
+   ./agenda_pbufferf
    ```
 
 ## 💻 Sample Output
