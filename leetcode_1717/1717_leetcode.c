@@ -8,7 +8,7 @@ int maximumGain(char* s, int x, int y) {
         for (int i = 0; i < len; i++) { // percorre a string e remove "ab"
             if (top >= 0 && stack[top] == 'a' && s[i] == 'b') {
                 top--;
-                points += x;
+                points = points + x;
             } else {
                 stack[++top] = s[i];
             }
@@ -17,7 +17,7 @@ int maximumGain(char* s, int x, int y) {
         for (int i = 0; i <= top; i++) {
             if (newTop >= 0 && stack[newTop] == 'b' && stack[i] == 'a') {
                 newTop--;
-                points += y;
+                points = points + y;
             } else {
                 stack[++newTop] = stack[i];
             }
@@ -27,7 +27,7 @@ int maximumGain(char* s, int x, int y) {
         for (int i = 0; i < len; i++) {
             if (top >= 0 && stack[top] == 'b' && s[i] == 'a') {
                 top--;
-                points += y;
+                points = points + y;
             } else {
                 stack[++top] = s[i];
             }
@@ -37,7 +37,7 @@ int maximumGain(char* s, int x, int y) {
         for (int i = 0; i <= top; i++) {
             if (newTop >= 0 && stack[newTop] == 'a' && stack[i] == 'b') {
                 newTop--;
-                points += x;
+                points = points + x;
             } else {
                 stack[++newTop] = stack[i];
             }
