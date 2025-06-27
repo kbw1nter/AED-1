@@ -11,7 +11,7 @@ struct ListNode* reverseList(struct ListNode* head) {
     struct ListNode* current = head; // Ponteiro atual
     struct ListNode* next = NULL;    // Ponteiro para próximo nó
     
-    while (current != NULL) {
+    while (current != NULL)  {
         next = current->next;
         
         current->next = prev;
