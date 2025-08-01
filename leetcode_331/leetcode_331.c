@@ -11,7 +11,6 @@ bool isValidSerialization(char* preorder) {
     int i = 0;
     
     while (i < len) {
-        // Se não temos slots disponíveis, é inválido
         if (slots == 0) {
             return false;
         }
