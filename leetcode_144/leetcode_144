@@ -1,0 +1,120 @@
+#include <stdlib.h>
+#include <stdio.h>
+
+struct TreeNode {
+    int val;
+    struct TreeNode *left;
+    struct TreeNode *right;
+};
+
+// função recursiva para realizar a travessia preorder
+void preorderHelper(struct TreeNode* root, int* result, int* index) {
+    if (root == NULL) {
+        return;
+    }
+    
+    // visita a raiz
+    result[(*index)++] = root->val;
+    
+    // depois visita a subárvore esquerda
+    preorderHelper(root->left, result, index);
+    
+    // por último visita a subárvore direita
+    preorderHelper(root->right, result, index);
+}
+
+// função para contar o número de nós na árvore
+int countNodes(struct TreeNode* root) {
+    if (root == NULL) {
+        return 0;
+    }
+    return 1 + countNodes(root->left) + countNodes(root->right);
+}
+
+int* preorderTraversal(struct TreeNode* root, int* returnSize) {
+    *returnSize = countNodes(root);
+    
+    // se a árvore estiver vazia, retorna NULL
+    if (*returnSize == 0) {
+        return NULL;
+    }
+    
+    // sloca memoria para o array resultado
+    int* result = (int*)malloc((*returnSize) * sizeof(int));
+    
+    // ondice para rastrear a posição atual no array
+    int index = 0;
+    
+    // chama a função auxiliar para preencher o array
+    preorderHelper(root, result, &index);
+    
+    return result;
+}
+
+// função auxiliar para criar um novo nó
+struct TreeNode* createNode(int val) {
+    struct TreeNode* node = (struct TreeNode*)malloc(sizeof(struct TreeNode));
+    node->val = val;
+    node->left = NULL;
+    node->right = NULL;
+    return node;
+}
+
+// função para imprimir o array resultado
+void printArray(int* arr, int size) {
+    printf("[");
+    for (int i = 0; i < size; i++) {
+        printf("%d", arr[i]);
+        if (i < size - 1) printf(",");
+    }
+    printf("]\n");
+}
+
+int main() {
+    int returnSize;
+    
+    // Exemplo 1: [1,null,2,3] -> [1,2,3]
+    struct TreeNode* root1 = createNode(1);
+    root1->right = createNode(2);
+    root1->right->left = createNode(3);
+    
+    int* result1 = preorderTraversal(root1, &returnSize);
+    printf("Exemplo 1: ");
+    printArray(result1, returnSize);
+    free(result1);
+    
+    // Exemplo 2: [1,2,3,4,5,null,8,null,null,6,7,9]
+    struct TreeNode* root2 = createNode(1);
+    root2->left = createNode(2);
+    root2->right = createNode(3);
+    root2->left->left = createNode(4);
+    root2->left->right = createNode(5);
+    root2->right->right = createNode(8);
+    root2->left->right->left = createNode(6);
+    root2->left->right->right = createNode(7);
+    root2->right->right->left = createNode(9);
+    
+    int* result2 = preorderTraversal(root2, &returnSize);
+    printf("Exemplo 2: ");
+    printArray(result2, returnSize);
+    free(result2);
+    
+    // Exemplo 3: [] -> []
+    int* result3 = preorderTraversal(NULL, &returnSize);
+    printf("Exemplo 3: ");
+    if (result3 == NULL) {
+        printf("[]\n");
+    } else {
+        printArray(result3, returnSize);
+        free(result3);
+    }
+    
+    // Exemplo 4: [1] -> [1]
+    struct TreeNode* root4 = createNode(1);
+    int* result4 = preorderTraversal(root4, &returnSize);
+    printf("Exemplo 4: ");
+    printArray(result4, returnSize);
+    free(result4);
+    
+    return 0;
+}

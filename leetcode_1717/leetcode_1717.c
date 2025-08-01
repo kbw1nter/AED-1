@@ -1,3 +1,7 @@
+#include <stdio.h> 
+#include <string.h> 
+#include <stdlib.h> 
+
 int maximumGain(char* s, int x, int y) {
     int len = strlen(s);
     char* stack = (char*)malloc(len * sizeof(char));
@@ -46,4 +50,35 @@ int maximumGain(char* s, int x, int y) {
     
     free(stack);
     return points;
+}
+
+int main() {
+    printf("Executando testes ...\n");
+    printf("========================\n\n");
+
+    //teste 1
+    char* s1 = "cdbcbbaaabab";
+    int x1 = 4;
+    int y1 = 5;
+    int resultado1 = maximumGain(s1, x1, y1);
+
+    printf("Teste 1:\n");
+    printf("Input: s = \"%s\", x = %d, y = %d\n", s1, x1, y1);
+    printf("Resultado Obtido: %d\n", resultado1);
+    printf("Resultado Esperado: 19\n\n");
+
+    //teste 2-
+    char* s2 = "aabbaaxybbaabb";
+    int x2 = 5;
+    int y2 = 4;
+    int resultado2 = maximumGain(s2, x2, y2);
+
+    printf("Teste 2:\n");
+    printf("Input: s = \"%s\", x = %d, y = %d\n", s2, x2, y2);
+    printf("Resultado Obtido: %d\n", resultado2);
+    printf("Resultado Esperado: 20\n\n");
+    
+    printf("Testes finalizados.\n");
+
+    return 0;
 }
