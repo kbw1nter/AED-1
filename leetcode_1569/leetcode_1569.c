@@ -47,7 +47,29 @@ long long solve(int* nums, int size) {
 int numOfWays(int* nums, int numsSize) {
     precomputeComb();
     
-    // subtrai 1 porque a pergunta é "outras formas" que exclui o original
+    // subtrai 1 porque a pergunta é "outras formas" oque exclui o original
     long long result = solve(nums, numsSize);
     return (result - 1 + MOD) % MOD;
+}
+
+int main() {
+    // teste 1
+    int nums1[] = {2, 1, 3};
+    int numsSize1 = sizeof(nums1) / sizeof(nums1[0]);
+    
+    printf("Example 1: Input = [2,1,3], Output = %d\n", numOfWays(nums1, numsSize1));
+    
+    //teste 2
+    int nums2[] = {3, 4, 5, 1, 2};
+    int numsSize2 = sizeof(nums2) / sizeof(nums2[0]);
+    
+    printf("Example 2: Input = [3,4,5,1,2], Output = %d\n", numOfWays(nums2, numsSize2));
+    
+    //teste 3
+    int nums3[] = {1, 2, 3};
+    int numsSize3 = sizeof(nums3) / sizeof(nums3[0]);
+    
+    printf("Example 3: Input = [1,2,3], Output = %d\n", numOfWays(nums3, numsSize3));
+    
+    return 0;
 }
