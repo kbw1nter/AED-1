@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <stdlib.h>
+
 const int MOD = 1000000007; //modulo 10^9 + 7
 long long comb[1001][1001];
 
