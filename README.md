@@ -35,15 +35,19 @@ Este repositório documenta minha jornada de aprendizado em algoritmos e estrutu
 
 ## 🏆 Trabalhos Acadêmicos
 
-### Trabalho 1 - Algoritmos de Ordenação
-- Implementação e comparação de algoritmos
-- Testes com diferentes tipos de dados
-- Relatório com resultados experimentais
+## Sistema de Agenda com pBuffer
+
+- **Gerenciamento de memória único:** Apenas uma chamada malloc() em todo programa
+- **Zero variáveis declaradas:** Todos os dados armazenados no buffer dinâmico
+- **Aritmética de ponteiros pura:** Acesso via cálculos de offset manual
+- **Operações CRUD completas:** Adicionar, remover, buscar e listar contatos
+- **Realocação dinâmica:** Buffer cresce/diminui conforme necessário
+- **Estrutura de dados customizada:** Layout manual de memória para contatos
 
 ---
 
 **Disciplina**: Algoritmos e Estruturas de Dados I  
 **Período**: 2025/1  
-**Instituição**: [Sua Universidade]
+**Instituição**: Universidade Federal de Pelotas - UFPEL
 
 ⭐ **Dica**: Use este repositório como referência de estudo, mas sempre tente resolver os problemas por conta própria primeiro!
